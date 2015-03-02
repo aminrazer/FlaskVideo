@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<style  type="text/css">
+html { height: 100%; padding: 0; margin:0; }
+.left{display:inline-block}
+.right{display:inline-block; float:right}
+</style>
+
+<head>
+    <title>Flask Video</title>
+</head>
+
+  <html>
+<div style="border-bottom:1px solid #000;"> 
+<div class="left"><h1>FlaskVideo</h1></div>
+<div class="right"><a class="upload" href ="{{url_for('upload')}}">Upload</a></div>
+</div>
+    <body>
+        <br>
+        <br>
+        <br>
+        <center>
+            <table><tr>
+        {% for v in videos %}<td>
+        <div>
+        <a href="{{url_for('uploaded_file',filename=v.id)}}"> 
+        <img src="{{url_for('static', filename= v.id ~ '.jpeg')}}">
+        <p>
+           <center> {{v.Title}}</center> </a> </p></td>
+   </div>
+       {% if v.id%4 ==0 %}
+  </tr>
+  <tr>
+{% endif %}
+        {% endfor %}
+         </tr>
+        </table>
+        </center>
+        </form>
+    </body>
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-16808291-3', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</html>
+
+ 
